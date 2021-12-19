@@ -1,0 +1,31 @@
+
+import java.util.Scanner;
+import java.util.regex.*;
+
+public class RegexClassTask {
+	public static void main(String[] args) {
+		
+		//creation of scanner object to take input of regex and inputString 
+		Scanner scan = new Scanner(System.in);
+		String regex, inputString;
+		
+		//Taking input of regex
+		System.out.print("Enter Regex Pattern : ");
+		regex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+		
+		//Taking inputString in which regex is searched
+		System.out.print("Enter Input String : ");
+		inputString = scan.nextLine();
+		
+		//Output
+		//System.out.println(Pattern.matches(regex, inputString) + "Started at : ");
+		Pattern mypattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+		Matcher mymatcher= mypattern.matcher(inputString);
+		System.out.println(mymatcher.find());
+		
+		
+		//Releasing resources.
+		scan.close();
+		
+	}
+}

@@ -1,0 +1,23 @@
+
+import java.util.Scanner;
+import java.util.regex.*;
+
+public class RegexClassTask {
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		String regex, inputString;
+		
+		System.out.print("Enter Regex Pattern : ");
+		regex = scan.nextLine();
+		
+		System.out.print("Enter Input String : ");
+		inputString = scan.nextLine();
+		
+		
+		System.out.println(Pattern.matches(regex, inputString));
+		
+		
+		
+	}
+}
