@@ -30,7 +30,7 @@ public class ShowCookieDetails extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		//Fetching cookie from browser with HttpRequest
 		Cookie ck[]=request.getCookies();  
 	    PrintWriter out = response.getWriter();  
 	    

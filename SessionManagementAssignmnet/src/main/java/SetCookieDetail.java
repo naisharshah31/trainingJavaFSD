@@ -29,15 +29,15 @@ public class SetCookieDetail extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//Fetching values received from form.
 		String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        
+        //Setting cookies in response.
         Cookie usernameCookie = new Cookie("username",username);
         Cookie passwordCookie = new Cookie("password",password);
         
-        request.setAttribute("usernameFromServlet", username);
-		request.setAttribute("passwordFromServlet", password);
 		response.addCookie(usernameCookie);
         response.addCookie(passwordCookie);
 		

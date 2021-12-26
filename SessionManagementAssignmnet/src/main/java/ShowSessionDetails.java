@@ -30,6 +30,8 @@ public class ShowSessionDetails extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//Getting values from session, which was set in SetSessionDetail Servlet and printing it.
 		PrintWriter out = response.getWriter();
         out.println("<html><body>");
         
@@ -41,7 +43,7 @@ public class ShowSessionDetails extends HttpServlet {
         String email = (String)session.getAttribute("email");
         String country = (String)session.getAttribute("country");
         
-        
+        //If all values are set properly then only display all details.
         if ( username != null && password != null && email != null && country != null  ) {
         	out.println("Username obtained from session :" + username + "<br>");
         	out.println("Password obtained from session :" + password + "<br>");
@@ -49,13 +51,15 @@ public class ShowSessionDetails extends HttpServlet {
         	out.println("Email obtained from session :" + email + "<br>");
         	out.println("Country obtained from session :" + country + "<br> <br> <br>");
         	
-        	
+        	//Printing other values like Creation Time(), Max time interval(), Last accessed time() of session. 
         	out.println("Creation Time(): " + new Date( session.getCreationTime()) + "<br> <br>");
     		out.println("Max time interval(): " +  session.getMaxInactiveInterval() + "<br> <br>");
-    		out.println("Max time interval(): " +  new Date(session.getLastAccessedTime()) + "<br> <br>");
+    		out.println("Last accessed time(): " +  new Date(session.getLastAccessedTime()) + "<br> <br>");
     		
             
         } else {
+        	
+        	//If anyone of the value is not set properly then display this below message.
         	 out.println("Details was found in session.<br>");
         }
               

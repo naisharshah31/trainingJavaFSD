@@ -27,6 +27,8 @@ public class SetSessionDetail extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//Setting session parameters with values received from form. 
 		String username = request.getParameter("username");
 		int age = Integer.parseInt(request.getParameter("age"));
 		String password = request.getParameter("password");
@@ -40,6 +42,7 @@ public class SetSessionDetail extends HttpServlet {
 		session.setAttribute("email",  email);
 		session.setAttribute("country",  country);
 		
+		//Redirect to another servlet
 		response.sendRedirect("show-session-details");
 		
 	}
