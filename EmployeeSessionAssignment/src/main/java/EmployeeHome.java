@@ -52,9 +52,10 @@ public class EmployeeHome extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("username",  username);
 		session.setAttribute("password",  age); 
-		session.setAttribute("username",  city);
-		session.setAttribute("password",  gender); 
-		session.setAttribute("username",  email);
+		session.setAttribute("city",  city);
+		session.setAttribute("gender",  gender); 
+		session.setAttribute("email",  email);
+		
 		
 		out.println("Creation Time: " +  session.getCreationTime() + "<br> <br>");
 		out.println("getID(): " +  session.getId() + "<br> <br>");
