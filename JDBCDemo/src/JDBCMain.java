@@ -11,7 +11,7 @@ public class JDBCMain {
 	
 	private static final String url = "jdbc:mysql://localhost:3306/classdemo";
     private static final String user = "root";
-    private static final String password = "NaisharMYSQL";
+    private static final String password = "YOUR_PASSWORD";
     
     private static Connection con;
     private static Statement stmt;
