@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 
 public class JDBCMain {
@@ -40,9 +41,22 @@ public class JDBCMain {
 		
 		
 		con = (Connection) DriverManager.getConnection(url, user, password);
-	    stmt = (Statement) con.createStatement();
-	    String queryString = "INSERT INTO emp VALUES(" + empID + ", '"+ empName +"',  " + salary +")";
-	    int res = stmt.executeUpdate(queryString); 
+		stmt = (Statement) con.createStatement();
+	    /*
+	     * USING CONCATE
+	     * String queryString = "INSERT INTO emp VALUES(" + empID + ", '"+ empName +"',  " + salary +")";
+	     */
+		
+		//USING PreparedStatement
+	    String queryString = "INSERT INTO emp VALUES (?, ?, ?)";
+	    PreparedStatement stmt=(PreparedStatement) con.prepareStatement(queryString);  
+	    stmt.setInt(1, empID);
+	    stmt.setString(2, empName);
+	    stmt.setInt(3, salary);
+	    
+	    System.out.println(stmt);
+	    
+	    int res = stmt.executeUpdate(); 
 	    
 	    if ( res == 1) {
 	    	System.out.println("Insertion successful :)");
