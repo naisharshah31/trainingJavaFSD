@@ -3,9 +3,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 public class JDBCMain {
 	
@@ -40,16 +40,17 @@ public class JDBCMain {
 		salary = scan.nextInt();
 		
 		
-		con = (Connection) DriverManager.getConnection(url, user, password);
-		stmt = (Statement) con.createStatement();
-	    /*
+		con = DriverManager.getConnection(url, user, password);
+		stmt = con.createStatement();
+	    
+		/*
 	     * USING CONCATE
 	     * String queryString = "INSERT INTO emp VALUES(" + empID + ", '"+ empName +"',  " + salary +")";
 	     */
 		
 		//USING PreparedStatement
 	    String queryString = "INSERT INTO emp VALUES (?, ?, ?)";
-	    PreparedStatement stmt=(PreparedStatement) con.prepareStatement(queryString);  
+	    PreparedStatement stmt= con.prepareStatement(queryString);  
 	    stmt.setInt(1, empID);
 	    stmt.setString(2, empName);
 	    stmt.setInt(3, salary);
@@ -80,8 +81,8 @@ public class JDBCMain {
 		empName = scan.next();
 		
 		
-		con = (Connection) DriverManager.getConnection(url, user, password);
-	    stmt = (Statement) con.createStatement();
+		con =  DriverManager.getConnection(url, user, password);
+	    stmt =  con.createStatement();
 	    String queryString = "UPDATE emp SET empname='"+ empName +"' WHERE empid = " + empID +"";
 	    int res = stmt.executeUpdate(queryString); 
 	    
@@ -103,8 +104,8 @@ public class JDBCMain {
 		
 		
 		
-		con = (Connection) DriverManager.getConnection(url, user, password);
-	    stmt = (Statement) con.createStatement();
+		con = DriverManager.getConnection(url, user, password);
+	    stmt =  con.createStatement();
 	    String queryString = "DELETE FROM emp WHERE empid = " + empID +"";
 	    int res = stmt.executeUpdate(queryString); 
 	    
@@ -118,8 +119,8 @@ public class JDBCMain {
 		
 		Class.forName("com.mysql.jdbc.Driver");
 
-		con = (Connection) DriverManager.getConnection(url, user, password);
-	    stmt = (Statement) con.createStatement();
+		con = DriverManager.getConnection(url, user, password);
+	    stmt =  con.createStatement();
 	    
 		String queryString = "SELECT * FROM emp";
 	    rs = stmt.executeQuery(queryString);
