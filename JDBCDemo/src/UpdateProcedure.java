@@ -10,7 +10,7 @@ public class UpdateProcedure {
 
 	private static final String url = "jdbc:mysql://localhost:3306/classdemo";
     private static final String user = "root";
-    private static final String password = "NaisharMYSQL";
+    private static final String password = "YOUR_PASSWORD";
     static String sql = "{call update_price(?,?,?)}";
 
     
