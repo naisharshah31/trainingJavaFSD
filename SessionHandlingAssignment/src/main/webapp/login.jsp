@@ -10,6 +10,6 @@
                 
                 session.setAttribute("name", name);
                 response.sendRedirect("dashboard.jsp");
-                
+                 
         }
 %>
