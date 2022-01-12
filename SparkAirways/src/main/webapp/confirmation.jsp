@@ -31,6 +31,7 @@
     url="jdbc:mysql://localhost:3306/sparkairways"  
     user="root"  password="NaisharMYSQL"/>  
     
+    <!-- After successful booking insert into table and print thank you message -->
     <sql:update dataSource="${db}" var="res_insert">  
 		INSERT INTO booking_details (email_id, flight_no) VALUES ( "${param.email}", ${param.flight_no} );  
 	</sql:update> 

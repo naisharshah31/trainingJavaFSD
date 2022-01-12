@@ -10,11 +10,12 @@
 <body>
 
 <%
-	
+		//check whether session is active or not
 		if (session.getAttribute("admin_username") == null) {
 	        response.sendRedirect("login.jsp?error=1");
 		}	
 
+		//Get admin username from session and store it in variable
 		String admin_username = (String) session.getAttribute("admin_username");
 %>
 

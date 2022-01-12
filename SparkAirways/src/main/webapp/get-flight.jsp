@@ -15,11 +15,12 @@
 
 	<h1 style="text-align: center;">Flight Details</h1>
 	<%
-	
+		//Check Session is activate or not
 		if (session.getAttribute("username") == null) {
 	        response.sendRedirect("login.jsp?error=1");
 		}	
 	 
+		//Fetch request params.
 	    String source_city = request.getParameter("source_city");
 	    String destination_city = request.getParameter("destination_city");
 	    String date_of_travel = request.getParameter("date_of_travel");
@@ -30,11 +31,12 @@
 	%>
 	
 	
-	
+	<!-- Connection -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"  
     url="jdbc:mysql://localhost:3306/sparkairways"  
     user="root"  password="NaisharMYSQL"/>  
     
+    <!-- SELECT Query to FETCH flight details based on different paramaters -->
 	<sql:query dataSource="${db}" var="rs">  
 		SELECT * FROM flight_details WHERE source_city="${param.source_city}" and destination_city="${param.destination_city}" and date_of_travel="${param.date_of_travel}";
 	</sql:query>  
@@ -47,6 +49,7 @@
 	<th>Date of Travel</th>  
 	<th>Price </th>
 	
+	<!-- Printing flight details -->
 	</tr>  
 		<c:forEach var="table" items="${rs.rows}">  
 			<tr>  

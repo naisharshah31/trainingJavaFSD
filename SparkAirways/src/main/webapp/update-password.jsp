@@ -14,12 +14,12 @@
 <body>
 
 <%
-	
+	//Check session is activate or not (If not return to login)
 	if (session.getAttribute("admin_username") == null) {
         response.sendRedirect("login.jsp?error=1");
 	}	
 	
-	
+	//Validation to check whether new password and confirm new password matches or not (If not then return to change password page)
 	String new_password = request.getParameter("new_password");
 	String confirm_new_password = request.getParameter("confirm_new_password");
 	if( ! new_password.matches(confirm_new_password) ) {
@@ -29,15 +29,17 @@
 	
 %>
 
-
+	<!-- Connnection -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"  
     url="jdbc:mysql://localhost:3306/sparkairways"  
     user="root"  password="NaisharMYSQL"/>  
     
+    <!-- UPDATE Query -->
     <sql:update dataSource="${db}" var="updateAdminPassword">  
 	UPDATE adminlogin SET password="${param.new_password}" WHERE username="${param.admin_username}";
 	</sql:update>
 	
+	<!-- If password is updated successfully then print respond message -->
 	<c:if test="${updateAdminPassword==1}">
 	<font size="5" color='green'> Password Updated Successfully.</font>
 	</c:if>

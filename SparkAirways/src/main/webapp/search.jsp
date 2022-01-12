@@ -11,13 +11,18 @@
 </head>
 <body>
 <%
+		//Session check
         if (session.getAttribute("username") == null) {
                 response.sendRedirect("login.jsp?error=1");
         }
 %>
+
+<!-- Print welcome message -->
 <b>Hello: <%= session.getAttribute("username") %></b><br>
 
 <br> 	
+
+<!-- Connection -->
 <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"  
      url="jdbc:mysql://localhost:3306/sparkairways"  
      user="root"  password="NaisharMYSQL"/>  
@@ -26,7 +31,8 @@
 <form style="text-align: center;" action="get-flight.jsp" method="post">
 	
 	<h2>Search Flight</h2>
-
+	
+	<!-- Query to fecth DISTINCT Values from source_city field -->
 	<label>From : </label>
 	<sql:query dataSource="${db}" var="rs">  
 		SELECT DISTINCT(source_city) FROM flight_Details;  
@@ -40,7 +46,7 @@
 	</select>	
 
 	<br> <br>
-	
+	<!-- Query to fecth DISTINCT Values from destination_city field -->
 	<label>To: </label>
 	<sql:query dataSource="${db}" var="rs">  
 		SELECT DISTINCT(destination_city) FROM flight_Details;  

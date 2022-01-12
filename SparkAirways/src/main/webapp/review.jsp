@@ -9,7 +9,8 @@
 <body>
 
 <%
-	
+		
+		//Session check
 		if (session.getAttribute("username") == null) {
 	        response.sendRedirect("login.jsp?error=1");
 		}	
@@ -19,6 +20,7 @@
             response.sendRedirect("index.jsp?error=1");
     	}
 		
+		//Fetch details from the form 
 		String fullname = request.getParameter("fullname");
 		String address = request.getParameter("address");
 		int age = Integer.parseInt( request.getParameter("age") );
@@ -54,6 +56,7 @@
 		
 		<form action="insert-detail.jsp" method="post">
 			
+			<!-- Pass details to insert-details.jsp to use hidden form field concept -->
 			<input type="hidden" name="flight_no" value="<%= flight_no %>">
 			<input type="hidden" name="fullname" value="<%= fullname %>">
 			<input type="hidden" name="email" value="<%= email %>">

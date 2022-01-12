@@ -9,7 +9,7 @@
 
 <%
  	
-		
+		//JSP page to validate whether given admin username and password is valid or not	
 
         String name = request.getParameter("username");
         String pwd = request.getParameter("password");

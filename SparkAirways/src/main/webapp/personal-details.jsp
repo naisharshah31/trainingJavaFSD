@@ -9,7 +9,7 @@
 <body>
 
 	<%
-	
+		//Session check
 		if (session.getAttribute("username") == null) {
 	        response.sendRedirect("login.jsp?error=1");
 		}	

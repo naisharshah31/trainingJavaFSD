@@ -5,6 +5,9 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
+<!-- Dummy PAYMENT GATEWAY -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -194,6 +197,7 @@ background-color: rgb(71, 177, 61);
             class="card-name-field"
             placeholder="Enter your Name"/>
         </div>
+        
         <a href="confirmation.jsp?email=<%= email %>&flight_no=<%= flight_no %>&transaction=sucessful">
         <button type="submit" 
                 class="submit-now-btn">
