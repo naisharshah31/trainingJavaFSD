@@ -20,7 +20,7 @@
         	
         	final String url = "jdbc:mysql://localhost:3306/sparkairways";
     	    final String user = "root";
-    	    final String dbPassword = "NaisharMYSQL";
+    	    final String dbPassword = "YOUR PASSWORD";
     		
     	    Connection conn;
     	    Statement stmt;
