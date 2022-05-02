@@ -136,7 +136,7 @@ background-color: rgb(71, 177, 61);
 	
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"  
     url="jdbc:mysql://localhost:3306/sparkairways"  
-    user="root"  password="NaisharMYSQL"/>  
+    user="root"  password="Your Password"/>  
     
     
     <sql:update dataSource="${db}" var="res_insert">  
